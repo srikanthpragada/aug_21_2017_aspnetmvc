@@ -1,0 +1,48 @@
+﻿@model IEnumerable<mvcdemo.Models.Book>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List Of Books</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table  width="100%" border="1" cellpadding="5px">
+        <tr>
+            <th>
+               Title 
+            </th>
+            <th>
+               Author
+            </th>
+            <th>
+               Price
+            </th>
+        </tr>
+    
+    @foreach (var book in Model) {
+        <tr>
+            <td>
+               @book.Title.ToUpper()
+            </td>
+            <td>
+                @book.Author
+            </td>
+            <td>
+                @book.Price.ToString("C")
+            </td>
+
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

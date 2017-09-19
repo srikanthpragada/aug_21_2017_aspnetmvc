@@ -1,4 +1,4 @@
-﻿
+﻿@model mvcdemo.Models.Book 
 @{
     Layout = null;
 }
@@ -8,12 +8,9 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Added</title>
 </head>
 <body>
-    <h1>Hello @ViewBag.Name</h1>
-    <h2>@ViewBag.Message</h2>
-    <hr/>
-    <span>@ViewBag.Author</span>
+    <h2>Book [@Model.Title]  has been added!</h2>
 </body>
 </html>

@@ -1,0 +1,32 @@
+﻿@model mvcdemo.Models.Book
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Book Information</title>
+</head>
+<body>
+    <h2>Book Information</h2>
+    @Model.Title
+    <p></p>
+    @Model.Author
+    <p></p>
+    @Model.Price.ToString("c")
+    
+
+    <h4>Chapters</h4>
+    <ul>
+        @foreach (string ch in Model.Chapters)
+        {
+            <li>@ch</li>
+        }
+    </ul>
+
+</body>
+</html>

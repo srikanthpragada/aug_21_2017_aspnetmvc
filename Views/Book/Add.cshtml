@@ -1,0 +1,38 @@
+﻿@model mvcdemo.Models.Book
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Book</title>
+</head>
+<body>
+    <h2>Add Book</h2>
+    @using (Html.BeginForm()) 
+    {
+            
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <br />
+                @Html.EditorFor(model => model.Title)
+                <p></p>
+            
+                @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
+                <br/>
+                @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
+                <p></p>
+
+                @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                <br />
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                
+        <p></p>
+                <input type="submit" value="Add Book" />
+    }
+
+</body>
+</html>
