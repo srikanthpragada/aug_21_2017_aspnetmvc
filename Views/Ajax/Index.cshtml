@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ajax Demo</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script>
+        function showTime() {
+            $.get("/Ajax/Now", {},
+                function (result) {
+                    $("#time").text(result);
+                }
+            );
+        }
+    </script>
+</head>
+<body>
+    <h2>Ajax with jQuery</h2>
+    <button onclick="showTime()">Show Date and Time</button>
+    <p></p>
+    <h3 id="time"></h3>
+
+    <h2>Using Ajax Helper</h2>
+    @Ajax.ActionLink("Show Date and Time","Now", 
+            new AjaxOptions {UpdateTargetId = "ajaxTime"})
+    <p></p>
+    <h3 id="ajaxTime"></h3>
+
+
+</body>
+</html>
