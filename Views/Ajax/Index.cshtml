@@ -9,7 +9,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Ajax Demo</title>
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <script>
         function showTime() {
             $.get("/Ajax/Now", {},
@@ -17,6 +18,10 @@
                     $("#time").text(result);
                 }
             );
+        }
+
+        function startAjax() {
+            $("#books").empty();  // clear contents of div 
         }
     </script>
 </head>
@@ -31,6 +36,21 @@
             new AjaxOptions {UpdateTargetId = "ajaxTime"})
     <p></p>
     <h3 id="ajaxTime"></h3>
+
+    <h2>Search Books</h2>
+    @using (Ajax.BeginForm("Search", new AjaxOptions {
+                      OnBegin="startAjax()",
+                      LoadingElementId ="loading",
+                      UpdateTargetId = "books" }))
+    {
+        <input type="text" placeholder="Title" name="pattern" />
+        <input type="submit" value="Search" />
+        <img id="loading"  style="display:none" src="~/Content/ajax-loader.gif" />
+        <p></p>
+        <div id="books">
+
+        </div>
+    }
 
 
 </body>

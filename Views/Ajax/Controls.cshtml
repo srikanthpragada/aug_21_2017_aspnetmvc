@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Controls</title>
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+
+    <script>
+        $(document).ready(
+            function () {
+                $("#dj").datepicker ( { changeYear: true, changeMonth : true });
+            }
+
+       )
+    </script>
+
+</head>
+<body>
+    <input type="text" id="dj" />
+    <input type="submit" value="Submit" />
+
+</body>
+</html>
