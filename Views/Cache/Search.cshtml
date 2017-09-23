@@ -1,0 +1,26 @@
+﻿@model IEnumerable<mvcdemo.Models.Book>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+</head>
+<body>
+    <ul>
+        @foreach (var book in Model)
+        {
+            <li>@book.Title</li>
+        }
+    </ul>
+
+
+    <p></p>
+    @ViewBag.Message
+</body>
+</html>
