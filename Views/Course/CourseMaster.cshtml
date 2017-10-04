@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <h1>Coures</h1>
+    <div>
+        @Html.ActionLink("List", "Index")
+        &nbsp;
+        @Html.ActionLink("Search", "Search")
+        &nbsp;
+        @Html.ActionLink("Add New Course", "Add")
+    </div>
+    <p></p>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

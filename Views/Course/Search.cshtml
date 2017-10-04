@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = "CourseMaster.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+
+    <h2>Search Courses</h2>
+    @using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "results" }))
+    {
+        <span>Course Title</span>
+        <input type="text" name="name" />
+        <input type="submit" value="Search"/>
+        <p></p>
+
+        <div id="results"></div>
+
+    }

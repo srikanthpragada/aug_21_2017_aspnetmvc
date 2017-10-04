@@ -1,6 +1,6 @@
 /bin/*
 /obj/*
-
+/app_data/*
 # Package Files #
 *.exe
 *.pdb
