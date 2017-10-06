@@ -75,6 +75,8 @@ namespace mvcdemo.Controllers
                 }
                 catch(Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
+                    HttpContext.Current.Trace.Write("Error : " + ex.Message);
                     HttpResponseMessage msg = new HttpResponseMessage(HttpStatusCode.InternalServerError);
                     throw new HttpResponseException(msg);
                 }

@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Course Client</title>
+    <script src="Scripts/jquery-1.12.4.js"></script>
+    <script>
+        function addCourse() {
+                var url = "api/Courses";
+                var data = {
+                    Name : $("#Name").val(),
+                    Fee : $("#Fee").val(),
+                    Duration : $("#Duration").val(),
+                    Prereq: $("#Prereq").val()
+                };
+
+                $.ajax(
+                    {
+                        "url": url,
+                        "data": data,
+                        "type": "post",
+                        "success": function () {
+                                     alert("Added Course Successfully");
+                                    },
+                        "error": function () {
+                                     alert("Sorry! Could not add course!");
+                                    }
+                    }
+                );
+
+        }  // addCourse
+
+
+        function getCourses() {
+            $.getJSON("api/Courses", showCourses);
+        }
+
+        function showCourses(courses) {
+
+            var output = "<table border=1 cellpadding='5px'><tr><th>Name</th><th>Fee </th><th>Duration</th><th>PreReq.</th></tr>";
+
+            $.each(courses,
+                   function (idx, course) {
+                       output += "<tr><td>" + course.Name + "</td><td>" + 
+                                  course.Fee + "</td><td>" + course.Duration + "</td><td>"
+                                 + course.Prereq + "</td></tr>";
+                   }
+            );
+
+            $("#courses").html(output);
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="getCourses()">Get All Courses</button>
+    <p></p>
+    <div id="courses">
+    </div>
+
+    <h2>Add Course</h2>
+    <input type="text" placeholder="Name" id="Name" />
+    <br/>
+    <input type="text" placeholder="Fee" id="Fee" />
+    <br />
+    <input type="text" placeholder="Duration" id="Duration" />
+    <br />
+    <input type="text" placeholder="Prereq" id="Prereq" />
+    <p/>
+    <button onclick="addCourse()">Add Course</button>
+
+</body>
+</html>
